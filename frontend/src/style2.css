@@ -1,0 +1,110 @@
+.Nav-left{
+   margin: 10px 10px;
+   background-color: rgb(189, 129, 204);
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+.hero {
+  background-color: #d8b1d2;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hero__title {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  z-index: 1;
+}
+
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #e094c1;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  -webkit-animation: cube 12s ease-in forwards infinite;
+          animation: cube 12s ease-in forwards infinite;
+}
+.cube:nth-child(2n) {
+  border-color: #c166d8;
+}
+.cube:nth-child(2) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  left: 25vw;
+  top: 40vh;
+}
+.cube:nth-child(3) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 1s;
+  left: 75vw;
+  top: 50vh;
+}
+.cube:nth-child(4) {
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+  left: 90vw;
+  top: 10vh;
+}
+.cube:nth-child(5) {
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+  left: 10vw;
+  top: 85vh;
+}
+.cube:nth-child(6) {
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+  left: 50vw;
+  top: 10vh;
+}
+.cube:nth-child(7) {
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+  left: 5vw;
+  top: 25vh;
+}
+.cube:nth-child(8) {
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+  left: 35vw;
+  top: 55vh;
+}
+.cube:nth-child(9) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  left: 78vw;
+  top: 10vh;
+}
+@-webkit-keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
