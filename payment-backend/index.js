@@ -62,9 +62,6 @@ app.post("/razorpay", async (req, res) => {
   }
 });
 
-app.listen(1337, () => {
+app.listen(1337 || process.env.PORT, () => {
   console.log("Backend running at localhost:1337");
-});
-app.listen(process.env.port, () => {
-  console.log("Backend running");
 });
