@@ -29,7 +29,6 @@ function CartList({ cart }) {
 
   useEffect(() => {
     {
-      if (cart) {
         localStorage.setItem(
           "price",
           JSON.stringify(
@@ -38,39 +37,24 @@ function CartList({ cart }) {
               .reduce((total, value) => total + value, 0)
           )
         );
-      }
+      
     }
   }, price);
 
-  const loadScript = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  };
-  const [c, setc] = useState(false);
-  useEffect(() => {
-    loadScript("https://checkout.razorpay.com/v1/checkout.js");
-  });
 
-  let submit = async (e) => {
-    e.preventDefault();
-    try {
-      setc(true);
-      console.log(c);
-      await axios.post("http://localhost:1337/", { cart });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  console.log(cart);
+  
+  let submit = (e) => {
+    e.preventDefault()
+    axios.post('https://check-g0m99xfke-gauravhubp.vercel.app/create-checkout-session', { CART })
+        .then(function (response) {
+           
+                window.location = response.data.redirect;
+           
+        })
+        .catch(function(error) {
+            window.location = "/"
+        })
+}
 
   return (
     <div>
@@ -161,17 +145,15 @@ function CartList({ cart }) {
               )}{" "}
             </span>
           </p>
-          {!c ? (
-            <div>
-              <form action="POST">
-                <button class="cartbtn3" id="ask-button" onClick={submit}>
+          {CART?.map((item) => item.price * item.quantity).reduce(
+                (total, value) => total + value,
+                0
+              ) !==0 ?
+            (<div class="chbtn">
+                <button class="cartbtn3" onClick={submit}>
                   CheckOut
                 </button>
-              </form>
-            </div>
-          ) : (
-            <Confirm />
-          )}
+            </div>): null}
         </div>
       )}
 

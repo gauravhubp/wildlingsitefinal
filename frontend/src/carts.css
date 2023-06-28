@@ -83,14 +83,14 @@
 
 .checkpay{
     text-align: center;
-    background-color: #f0c0f5;
+    background-color: #f5c0d2;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
-    padding: 60px;
+    padding: 30px;
     margin: auto auto;
-    border-radius: 10%;
-    width: 30%;
+    border-radius: 3%;
+    width: 60%;
 }
 
 
